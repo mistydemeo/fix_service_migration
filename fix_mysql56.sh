@@ -15,7 +15,9 @@ function headline() {
 headline "Removing leftovers under the old name"
 launchctl stop homebrew.mxcl.mysql56 || true
 rm -f ~/Library/LaunchAgents/homebrew.mxcl.mysql56.plist
-brew unlink mysql56
+if [ -d $(brew --prefix)/Cellar/mysql56 ]; then
+  brew unlink mysql56
+fi
 headline "Making sure the new service is running"
 brew link mysql@5.6
 brew services restart mysql@5.6
