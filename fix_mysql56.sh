@@ -11,8 +11,8 @@ function headline() {
   printf "$(tput setaf 4)==>$(tput sgr0)$(tput bold) ${1:-}$(tput sgr0)\n"
 }
 
-# It's okay for this to exit non-zero
 headline "Removing leftovers under the old name"
+# It's okay for this to exit non-zero
 launchctl stop homebrew.mxcl.mysql56 || true
 rm -f ~/Library/LaunchAgents/homebrew.mxcl.mysql56.plist
 if [ -d $(brew --prefix)/Cellar/mysql56 ]; then
