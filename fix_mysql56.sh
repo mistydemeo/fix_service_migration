@@ -10,4 +10,6 @@ which brew >/dev/null || {
 # It's okay for this to exit non-zero
 launchctl stop homebrew.mxcl.mysql56 || true
 rm -f ~/Library/LaunchAgents/homebrew.mxcl.mysql56.plist
+brew unlink mysql56
+brew link mysql@5.6
 brew services restart mysql@5.6
